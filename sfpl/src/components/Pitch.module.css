@@ -1,0 +1,12 @@
+.pitchContainer {
+    overflow: hidden;
+    height: 100%;
+    background-image: url("../assets/pitch.svg");
+    background-position: center;
+    background-size: cover;
+}
+
+.positionRow {
+    width: 100%;
+    height: 25%;
+}

@@ -1,0 +1,40 @@
+.modalDialogue {
+    width: 80%;
+    margin: auto;
+}
+
+.modalTitle {
+    font-family: var(--primary-font);
+    font-size: 15px;
+    color: white;
+}
+
+.modalHeader {
+    border: none;
+}
+
+.modalContent {
+    background-color: var(--primary-colour);
+    border-radius: 15px;
+}
+
+.closeButton {
+    filter: invert(1);
+}
+
+.enterButton {
+    background: none;
+    border: none;
+    color: white;
+}
+
+input {
+    font-family: var(--primary-font);
+}
+
+.validId {
+    font-family: var(--primary-font);
+    height: 20px;
+    color: rgb(239, 82, 82);
+    font-size: 13px;
+}

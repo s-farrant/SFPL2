@@ -1,0 +1,18 @@
+/* All chips & status container */
+.chipStripDiv {
+    width: 90%;
+}
+
+/* Chip strip (no status) */
+.chipStripRow {
+    background-color: #d0d0d0;
+    border-radius: 8px;
+}
+
+/* Chip Status */
+.chipStatus {
+    font-family: var(--secondary-font);
+    font-size: 13px;
+    font-weight: 900;
+    padding-top: 5px;
+}

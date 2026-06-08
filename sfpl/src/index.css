@@ -1,0 +1,57 @@
+/* ******************************************** */
+/* VARIABLES */
+/* ******************************************** */
+
+:root {
+    --primary-colour: #2c0230;
+    --default-black: #333;
+
+    --primary-font: "ABeeZee";
+    --secondary-font: "Akt";
+    --sfpl-font: "Karantina";
+    --gradient-shady-water: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    --gradient-rainbow: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+    --gradient-grey: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+/* ******************************************** */
+/* GLOBAL */
+/* ******************************************** */
+
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden !important;
+    background-color: var(--primary-colour);
+}
+
+.font-large {
+    font-size: 40px;
+}
+
+.modal-backdrop {
+    --bs-backdrop-opacity: 0.8;
+}
+
+.isInstalledStyle {
+    color: white;
+    font-family: var(--primary-font);
+}
+
+.instructions {
+    font-size: 13px;
+}
+
+.sfpl {
+    font-family: var(--sfpl-font);
+    font-size: 60px;
+    font-style: italic;
+    background: var(--gradient-shady-water);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

@@ -1,0 +1,107 @@
+.headingContainer {
+    flex: 12;
+}
+
+.dreamteamHeading {
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    font-size: 20px;
+    color: #0094bd;
+}
+
+.gameweekText {
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.pitchContainer {
+    flex: 65;
+    width: 100%;
+    min-height: 0;
+    margin-bottom: -1px;
+}
+
+.totalPointsContainer {
+    flex: 5;
+    background-color: #007b3b;
+    color: white;
+    font-family: var(--secondary-font);
+    font-size: 19px;
+}
+
+.totalPoints {
+    font-size: 19px;
+    font-family: var(--secondary-font);
+    font-weight: 800;
+}
+
+.playerInfo {
+    flex: 3;
+    background-color: white;
+}
+
+.playerInfoName {
+    font-family: var(--primary-font);
+    font-size: 12px;
+}
+
+.divider {
+    color: rgb(209, 209, 209);
+}
+
+.topPlayerContainer {
+    flex: 15;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.gameweekForwardBack {
+    background: none;
+    color: var(--default-black);
+    border: none;
+}
+
+button:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.imageContainer {
+    aspect-ratio: 1;
+    height: calc(100% - 30px);
+    border-radius: 15px;
+    background-color: #dad5da;
+    overflow: hidden;
+}
+
+.playerImage {
+    height: 100%;
+    object-fit: contain;
+}
+
+.playerText {
+    font-family: var(--primary-font);
+}
+
+.starPlayerName {
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.teamName {
+    font-size: 12px;
+}
+
+.starPlayer {
+    background-color: goldenrod;
+    color: white;
+    font-family: var(--secondary-font);
+    font-weight: 1000;
+    font-style: italic;
+    font-size: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}

@@ -1,0 +1,32 @@
+/* Single chip container */
+.chipContainer {
+    border-radius: 7px;
+}
+
+/* Chip label */
+.chipLabel {
+    font-family: var(--primary-font);
+    font-size: 10px;
+}
+
+/* Active Chip */
+.activeChip {
+    background-image: var(--gradient-shady-water);
+    box-shadow: inset 0 0 0 3px #8acdde;
+    color: var(--default-black);
+}
+
+/* Played Chip */
+.playedChip {
+    color: #9d9d9d;
+}
+
+/* Available Chip */
+.availableChip {
+    color: var(--default-black);
+}
+
+/* Active Chip */
+.activeChipText {
+    color: #9face6
+}

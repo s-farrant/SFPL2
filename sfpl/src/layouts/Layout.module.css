@@ -1,0 +1,95 @@
+/* Layout wrapper */
+.layoutWrapper {
+    flex: 1;
+    min-height: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.layoutWrapperTopNav {
+    margin-top: 45px;
+}
+
+.content {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+
+/*  Top navigation bar */
+.topNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: env(safe-area-inset-top);
+    background-color: var(--primary-colour);
+}
+
+/* SFPL logo top nav */
+.sfpl {
+    font-family: var(--sfpl-font);
+    font-size: 30px;
+    font-style: italic;
+    background: var(--gradient-shady-water);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.navigationButton {
+    background: none;
+    border: none;
+    color: white;
+}
+
+
+/* Bottom navigation bar */
+.bottomNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: 10px;
+    color: white;
+    background-color: var(--primary-colour);
+    border-radius: 20px 20px 0 0;
+}
+
+/* Nav text */
+.menuText {
+    font-size: 10px;
+    font-family: var(--primary-font);
+}
+
+/* Nav active indicator */
+.activeIndicator {
+    position: relative;
+}
+
+.activeIndicator::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 25%;
+    width: 0;
+    height: 3px;
+    background-image: var(--gradient-shady-water);
+    border-radius: 999px;
+    animation: slide-in 0.3s ease forwards;
+}
+
+@keyframes slide-in {
+    from {
+        width: 0;
+        left: 25%;
+    }
+
+    to {
+        width: 50%;
+        left: 25%;
+    }
+}

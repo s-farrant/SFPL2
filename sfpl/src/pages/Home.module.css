@@ -1,0 +1,89 @@
+/* Homepage wrapper */
+.homepageWrapper {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+}
+
+.titleContainer {
+    min-height: 0;
+}
+
+.pointsChipsContainer {
+    min-height: 300;
+}
+
+.dreamteamContainer {
+    min-height: 0;
+    height: 50px;
+    width: 90%;
+}
+
+.leagueSnippetContainer {
+    min-height: 0;
+    flex: 30;
+    font-family: var(--primary-font);
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* SFPL logo */
+.sfpl {
+    font-family: var(--sfpl-font);
+    font-size: 60px;
+    font-style: italic;
+    background: var(--gradient-shady-water);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Gameweek heading text */
+.gameweekHeading {
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    color: var(--default-black);
+}
+
+.teamName {
+    font-family: var(--primary-font);
+    color: var(--default-black);
+}
+
+.switchManagerId {
+    color: #9d9d9d;
+}
+
+/* Weekly dreamteam button */
+
+.gameweekDreamteam {
+    border-radius: 10px;
+    border: 4px solid rgba(188, 197, 206);
+    font-family: var(--primary-font);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--default-black);
+    background-image: 
+        linear-gradient(150deg, rgba(188, 197, 206, 0.95) 30%, transparent 80%),
+        url("/src/assets/football_stadium.jpg");
+    background-size: 100%, 250%;
+    background-position: 10% 60%;
+    background-repeat: no-repeat;
+}
+
+/* Season dreamteam button */
+
+.seasonDreamteam {
+    border-radius: 10px;
+    border: 4px solid rgba(216, 196, 79);
+    font-family: var(--primary-font);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--default-black);
+    background-image:
+        linear-gradient(150deg, rgba(216, 196, 79, 0.95) 20%, transparent 80%),
+        url("/src/assets/football_stadium.jpg");
+    background-size: 100%, 250%;
+    background-position: 80% 60%;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,31 @@
+.main {
+    background-color: var(--primary-colour);
+    font-family: var(--primary-font);
+    color: white;
+}
+
+.sfpl {
+    font-family: var(--sfpl-font);
+    font-size: 60px;
+    font-style: italic;
+    background: var(--gradient-shady-water);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.enterButton {
+    background: none;
+    border: none;
+    color: white;
+}
+
+.validId {
+    height: 20px;
+    color: rgb(239, 82, 82);
+    font-size: 13px;
+}
+
+.example {
+    color: gray;
+}

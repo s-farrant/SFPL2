@@ -1,0 +1,7 @@
+.globalLayout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: env(safe-area-inset-top);
+    background-image: var(--gradient-grey);
+}

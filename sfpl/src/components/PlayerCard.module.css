@@ -1,0 +1,52 @@
+.playerCardContainer {
+    height: 80%;
+    width: 15%;
+    background-color: #317548;
+    border-radius: 6px;
+    border: 1px solid #317548;
+}
+
+.shirtContainer {
+    width: 80%;
+    margin: 0 auto;
+    aspect-ratio: 0.5;
+    position: relative;
+    overflow: hidden;
+}
+
+.shirtContainer img {
+    position: absolute;
+    width: 100%;
+    top: 15%;
+}
+
+.playerInfo {
+    width: 100%;
+}
+
+.playerName {
+    width: 100%;
+    background-color: white;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 10px;
+    border-radius: 3px 3px 0 0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.playerNameText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playerPoints {
+    width: 100%;
+    background-color: var(--primary-colour);
+    font-family: var(--primary-font);
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+    border-radius: 0 0 6px 6px;
+}
