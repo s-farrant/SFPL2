@@ -1,5 +1,7 @@
 import { Outlet, Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
+import { useGameweek } from "../contexts/GameweekProvider";
+
 import clsx from "clsx";
 import styles from "./Layout.module.css";
 
@@ -16,7 +18,9 @@ export default function Layout() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const hideBack = ["/", "/team", "/leagues", "/players", "/fixtures"].includes(location.pathname);
+    const gameweekId = useGameweek().gameweekId;
+
+    const hideBack = ["/", "/leagues", "/players", "/fixtures"].includes(location.pathname);
 
     const navClass = (isActive) => {
         return clsx(
@@ -46,7 +50,7 @@ export default function Layout() {
                     <Home width={25} height={25} />
                     Home
                 </NavLink>
-                <NavLink className={({ isActive }) => navClass(isActive)} to="/team">
+                <NavLink className={({ isActive }) => navClass(isActive)} to={gameweekId ? `/team/${gameweekId}` : "/team"}>
                     <Team height={25} width={25} />
                     Team
                 </NavLink>

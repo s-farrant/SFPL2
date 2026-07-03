@@ -41,10 +41,10 @@ export default function Dreamteam() {
     const fetchPlayerInfo = async (playerId) => {
         setPlayerInfo({ loading: true });
         if (gameweekId == "season") {
-            const selectedPlayerData = await apiFetch(`/dreamteam/playerInfo/${playerId}/season`);
+            const selectedPlayerData = await apiFetch(`/players/${playerId}/season`);
             setPlayerInfo(selectedPlayerData);
         } else {
-            const selectedPlayerData = await apiFetch(`/dreamteam/playerInfo/${playerId}?gameweek=${gameweekId}`);
+            const selectedPlayerData = await apiFetch(`/players/${playerId}?gameweek=${gameweekId}`);
             setPlayerInfo(selectedPlayerData);
         }
     };

@@ -1,6 +1,7 @@
 const players = {};
 const positions = {};
 const teams = {};
+const teamsById = {};
 const gameweek = {};
 const events = {}
 
@@ -18,6 +19,7 @@ const bootstrapFetch = async () => {
 
     bootstrapData.teams.forEach(team => {
         teams[team.code] = team;
+        teamsById[team.id] = team;
     });
 
     bootstrapData.events.forEach(event => {
@@ -33,4 +35,4 @@ const bootstrapFetch = async () => {
 
 }
 
-module.exports = { bootstrapFetch, players, positions, teams, gameweek, events }
+module.exports = { bootstrapFetch, players, positions, teams, teamsById, gameweek, events }

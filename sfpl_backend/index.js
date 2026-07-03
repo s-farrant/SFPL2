@@ -11,12 +11,16 @@ const PORT = 3001;
 
 const dreamteamRouter = require("./routes/dreamteam.js");
 const managerRouter = require("./routes/manager.js");
+const teamRouter = require("./routes/team.js");
+const playersRouter = require("./routes/players.js");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/dreamteam", dreamteamRouter);
 app.use("/manager", managerRouter);
+app.use("/team", teamRouter);
+app.use("/players", playersRouter);
 
 app.get("/current-gameweek", (req, res, next) => {
     res.json(gameweek);

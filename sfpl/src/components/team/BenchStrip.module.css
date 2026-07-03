@@ -1,0 +1,21 @@
+.benchContainer {
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+}
+
+.benchLabel {
+    flex: none;
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    font-size: 10px;
+    color: var(--default-black);
+    text-align: center;
+    padding-top: 2px;
+}
+
+.benchRow {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+}

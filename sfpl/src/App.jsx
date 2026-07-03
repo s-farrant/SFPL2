@@ -35,7 +35,7 @@ function App() {
                     <Route element={<GlobalLayout />}>
                         <Route element={<Layout />}>
                             <Route path="/" element={<Home />} />
-                            <Route path="/team" element={<Team />} />
+                            <Route path="/team/:gameweekId" element={<Team />} />
                             <Route path="/leagues" element={<Leagues />} />
                             <Route path="/players" element={<Players />} />
                             <Route path="/fixtures" element={<Fixtures />} />
