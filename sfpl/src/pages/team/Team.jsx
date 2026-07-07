@@ -134,18 +134,20 @@ export default function Team() {
                     <div className="col-3 d-flex align-items-center justify-content-center"><button className={styles.gameweekForwardBack} onClick={() => navigate(`/team/${Number(gameweekId) + 1}`)} disabled={Number(gameweekId) >= currentGameweek}><ArrowRight width={25} height={25} /></button></div>
                 </div>
             </div>
-            {data.activeChip ? (
-                <div className={clsx("w-100 d-flex align-items-center justify-content-center gap-2", styles.chipBanner)}>
-                    <ChipIcon width={18} height={18} />
-                    <span>{CHIP_LABELS[data.activeChip]} Active</span>
-                    <ChipIcon width={18} height={18} />
+            <div className={styles.pitchSection}>
+                {data.activeChip ? (
+                    <div className={clsx("w-100 d-flex align-items-center justify-content-center gap-2", styles.chipBanner)}>
+                        <ChipIcon width={18} height={18} />
+                        <span>{CHIP_LABELS[data.activeChip]} Active</span>
+                        <ChipIcon width={18} height={18} />
+                    </div>
+                ) : null}
+                <div className={styles.pitchContainer}>
+                    <div className={styles.statDropdownWrapper}>
+                        <StatDropdown value={statView} onChange={setStatView} />
+                    </div>
+                    <Pitch onClick={fetchPlayerInfo} onClickDismiss={setPlayerInfo} players={startingPlayers} />
                 </div>
-            ) : null}
-            <div className={styles.pitchContainer}>
-                <div className={styles.statDropdownWrapper}>
-                    <StatDropdown value={statView} onChange={setStatView} />
-                </div>
-                <Pitch onClick={fetchPlayerInfo} onClickDismiss={setPlayerInfo} players={startingPlayers} />
             </div>
             <div className={clsx(styles.totalPointsContainer, "w-100 d-flex align-items-center justify-content-center")}><span className={styles.totalPoints}>{data.totalPoints.toLocaleString()}pts</span></div>
             <div className={clsx(styles.playerInfo, "w-100 d-flex align-items-center justify-content-center")}>

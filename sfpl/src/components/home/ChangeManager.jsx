@@ -30,7 +30,7 @@ export default function ChangeManager({ showModalTrueFalse, setShowModalFunction
         <>
             <div className={`modal fade ${showModalTrueFalse ? 'show d-block' : ''}`} tabIndex="-1">
                 <div className={clsx("modal-dialog d-flex align-items-center justify-content-center modal-dialog-centered", styles.modalDialogue)}>
-                    <div className={clsx("modal-content p-2", styles.modalContent)}>
+                    <div className={clsx("modal-content ps-2 pe-2 pb-2", styles.modalContent)}>
                         <div className={clsx("modal-header", styles.modalHeader)}>
                             <h5 className={clsx("modal-title", styles.modalTitle)}>Change Manager ID</h5>
                             <button type="button" className={clsx("btn-close", styles.closeButton)} data-bs-dismiss="modal" aria-label="Close" onClick={() => { setShowModalFunction(false); setValidId(true); }}></button>
@@ -41,7 +41,9 @@ export default function ChangeManager({ showModalTrueFalse, setShowModalFunction
                                 <Enter width={25} height={25}/>
                             </button>
                         </div>
-                        <div className={clsx("d-flex align-items-center justify-content-center mb-2", styles.validId)}>{validId ? null : "Invalid Manager ID"}</div>
+                        {validId ? null : (
+                            <div className={clsx("d-flex align-items-center justify-content-center mb-2", styles.validId)}>Invalid Manager ID</div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@ export default function PlayerCard(props) {
         ...(props.player?.textColor ? { color: props.player.textColor } : {}),
     };
 
-    return (
+    const card = (
         <div className={clsx(styles.playerCardContainer, props.variant === "bench" && styles.playerCardBench, "p-0 d-flex flex-column justify-content-between align-items-stretch")} onClick={(e) => { e.stopPropagation(); props.onClick(props.playerId)}}>
             <div className={styles.shirtContainer}>
                 <img src={props.player?.position == 1 ? getGoalkeeperJersey(`${props.player?.team}.webp`) : getOutfieldJersey(`${props.player?.team}.webp`)} />
@@ -44,5 +44,16 @@ export default function PlayerCard(props) {
                 </div>
             </div>
         </div>
-    )
+    );
+
+    if (props.variant === "bench" && props.player?.positionShort) {
+        return (
+            <div className={clsx(styles.benchCardWrapper, "d-flex flex-column")}>
+                <div className={styles.positionLabel}>{props.player.positionShort}</div>
+                {card}
+            </div>
+        );
+    }
+
+    return card;
 }

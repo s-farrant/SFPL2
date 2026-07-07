@@ -1,4 +1,4 @@
-const { players, teamsById } = require('../cache.js')
+const { players, positions, teamsById } = require('../cache.js')
 const { getPicks, getLive, getFixtures, getTransfers } = require('../teamCache.js')
 
 const express = require("express");
@@ -74,6 +74,7 @@ teamRouter.get("/:managerId/:gameweekId", async (req, res, next) => {
             name: player.web_name,
             team: player.team_code,
             position: player.element_type,
+            positionShort: positions[player.element_type]?.singular_name_short,
             points: (liveByElement[pick.element]?.total_points || 0) * pick.multiplier,
             armband: pick.is_captain ? "C" : pick.is_vice_captain ? "V" : null,
             isAutoSub: autoSubIds.has(pick.element),

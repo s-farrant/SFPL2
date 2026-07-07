@@ -4,7 +4,7 @@ const VIEWS = [
     { id: "points", label: "Points" },
     { id: "fixture", label: "Fixture" },
     { id: "form", label: "Form" },
-    { id: "priceChange", label: "Price Δ" },
+    { id: "priceChange", label: "Price change" },
     { id: "ict", label: "ICT" },
     { id: "selected", label: "Selected %" },
 ];

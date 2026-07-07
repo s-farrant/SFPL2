@@ -10,6 +10,28 @@
 .playerCardBench {
     background-color: #dad5da;
     border-color: #dad5da;
+    width: 100%;
+    height: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+.benchCardWrapper {
+    width: 15%;
+    height: 80%;
+    padding: 0;
+}
+
+.positionLabel {
+    flex: none;
+    width: 100%;
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    font-size: 9px;
+    color: var(--default-black);
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 3px;
 }
 
 .shirtContainer {

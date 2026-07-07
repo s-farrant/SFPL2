@@ -16,7 +16,7 @@ playersRouter.get("/:id", async (req, res, next) => {
 
     let playerStatsArr = [];
 
-    gameweekData.minutes == 0 ? null : playerStatsArr.push({ statName: "MP", value: gameweekData.minutes });
+    gameweekData.minutes == 0 ? playerStatsArr.push({ statName: "MP", value: "0" }) : playerStatsArr.push({ statName: "MP", value: gameweekData.minutes });
     gameweekData.goals_scored == 0 ? null : playerStatsArr.push({ statName: "G", value: gameweekData.goals_scored});
     gameweekData.assists == 0 ? null : playerStatsArr.push({ statName: "A", value: gameweekData.assists });
     if (players[String(playerId)].element_type < 4) {

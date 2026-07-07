@@ -26,6 +26,15 @@ button:disabled {
     cursor: not-allowed;
 }
 
+.pitchSection {
+    flex: 61;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .chipBanner {
     flex: 4;
     width: 90%;
@@ -38,7 +47,7 @@ button:disabled {
 
 .pitchContainer {
     position: relative;
-    flex: 61;
+    flex: 57;
     width: 100%;
     min-height: 0;
     margin-bottom: -1px;

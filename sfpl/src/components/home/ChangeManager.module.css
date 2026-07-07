@@ -34,7 +34,6 @@ input {
 
 .validId {
     font-family: var(--primary-font);
-    height: 20px;
     color: rgb(239, 82, 82);
     font-size: 13px;
 }
