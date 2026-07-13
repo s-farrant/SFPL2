@@ -9,11 +9,11 @@ const VIEWS = [
     { id: "selected", label: "Selected %" },
 ];
 
-export default function StatDropdown({ value, onChange }) {
+export default function StatDropdown({ value, onChange, disableIds = [] }) {
     return (
         <select className={styles.dropdown} value={value} onChange={(e) => onChange(e.target.value)}>
             {VIEWS.map(view => (
-                <option key={view.id} value={view.id}>{view.label}</option>
+                <option key={view.id} value={view.id} disabled={disableIds.includes(view.id)}>{view.label}</option>
             ))}
         </select>
     )

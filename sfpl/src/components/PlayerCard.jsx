@@ -2,6 +2,16 @@ import clsx from "clsx";
 import styles from "./PlayerCard.module.css";
 import { Substitute } from "./icons/Substitute";
 
+const buildBadgeBackground = (badgeColor) => {
+    if (!badgeColor) return null;
+    if (!Array.isArray(badgeColor)) return badgeColor;
+    if (badgeColor.length <= 1) return badgeColor[0];
+
+    const step = 100 / badgeColor.length;
+    const stops = badgeColor.map((color, i) => `${color} ${i * step}% ${(i + 1) * step}%`).join(", ");
+    return `linear-gradient(to right, ${stops})`;
+};
+
 export default function PlayerCard(props) {
 
     const outfieldJerseys = import.meta.glob(
@@ -22,8 +32,9 @@ export default function PlayerCard(props) {
         return goalkeeperJerseys[`../assets/goalkeeper_jerseys/${filename}`];
     }
 
+    const badgeBackground = buildBadgeBackground(props.player?.badgeColor);
     const pointsStyle = {
-        ...(props.player?.badgeColor ? { backgroundColor: props.player.badgeColor } : {}),
+        ...(badgeBackground ? { background: badgeBackground } : {}),
         ...(props.player?.textColor ? { color: props.player.textColor } : {}),
     };
 

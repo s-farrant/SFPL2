@@ -42,6 +42,13 @@ const formatPriceChange = (priceChange) => {
     return `${sign}£${Math.abs(priceChange / 10).toFixed(1)}m`;
 };
 
+const formatDeadline = (iso) => {
+    if (!iso) return "TBD";
+    return new Intl.DateTimeFormat("en-GB", {
+        weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
+    }).format(new Date(iso));
+};
+
 const decoratePlayer = (player, statView) => {
     let points;
     let badgeColor;
@@ -53,9 +60,8 @@ const decoratePlayer = (player, statView) => {
             points = player.fixture;
             compactText = player.fixtureDifficulty.length > 1;
             if (player.fixtureDifficulty.length > 0) {
-                const maxDifficulty = Math.max(...player.fixtureDifficulty);
-                badgeColor = FDR_COLORS[maxDifficulty];
-                if (maxDifficulty === 3) textColor = FDR_NEUTRAL_TEXT_COLOR;
+                badgeColor = player.fixtureDifficulty.map(difficulty => FDR_COLORS[difficulty]);
+                if (player.fixtureDifficulty.some(difficulty => difficulty === 3)) textColor = FDR_NEUTRAL_TEXT_COLOR;
             }
             break;
         case "form":
@@ -87,19 +93,26 @@ export default function Team() {
     const navigate = useNavigate();
 
     const { gameweekId } = useParams();
-    const currentGameweek = useGameweek().gameweekId;
+    const { gameweekId: currentGameweek, totalGameweeks } = useGameweek();
 
     const managerId = JSON.parse(localStorage.getItem("managerId"), null);
+
+    const isFutureGameweek = currentGameweek != null && Number(gameweekId) > currentGameweek;
 
     const { data, loading, error } = useFetch(`/team/${managerId}/${gameweekId}`, gameweekId);
     const { data: managerData, loading: managerLoading, error: managerError } = useFetch(`/manager/${managerId}`);
 
     useEffect(() => {
         setPlayerInfo(null);
-        setStatView("points");
     }, [gameweekId]);
 
-    if (loading || managerLoading) return <Loading loading={true} />
+    useEffect(() => {
+        if (isFutureGameweek && statView === "points") {
+            setStatView("fixture");
+        }
+    }, [isFutureGameweek, statView]);
+
+    if (loading || managerLoading || currentGameweek == null) return <Loading loading={true} />
     if (error || managerError) {
         return (
         <div className="w-100 h-100 d-flex align-items-center justify-content-center">
@@ -131,7 +144,7 @@ export default function Team() {
                 <div className="row w-100">
                     <div className="col-3 d-flex align-items-center justify-content-center"><button className={styles.gameweekForwardBack} onClick={() => navigate(`/team/${Number(gameweekId) - 1}`)} disabled={Number(gameweekId) <= 1}><ArrowLeft width={25} height={25} /></button></div>
                     <div className={clsx("d-flex align-items-center justify-content-center col-6", styles.gameweekText)}>Gameweek {gameweekId}</div>
-                    <div className="col-3 d-flex align-items-center justify-content-center"><button className={styles.gameweekForwardBack} onClick={() => navigate(`/team/${Number(gameweekId) + 1}`)} disabled={Number(gameweekId) >= currentGameweek}><ArrowRight width={25} height={25} /></button></div>
+                    <div className="col-3 d-flex align-items-center justify-content-center"><button className={styles.gameweekForwardBack} onClick={() => navigate(`/team/${Number(gameweekId) + 1}`)} disabled={Number(gameweekId) >= totalGameweeks}><ArrowRight width={25} height={25} /></button></div>
                 </div>
             </div>
             <div className={styles.pitchSection}>
@@ -144,12 +157,12 @@ export default function Team() {
                 ) : null}
                 <div className={styles.pitchContainer}>
                     <div className={styles.statDropdownWrapper}>
-                        <StatDropdown value={statView} onChange={setStatView} />
+                        <StatDropdown value={statView} onChange={setStatView} disableIds={isFutureGameweek ? ["points"] : []} />
                     </div>
                     <Pitch onClick={fetchPlayerInfo} onClickDismiss={setPlayerInfo} players={startingPlayers} />
                 </div>
             </div>
-            <div className={clsx(styles.totalPointsContainer, "w-100 d-flex align-items-center justify-content-center")}><span className={styles.totalPoints}>{data.totalPoints.toLocaleString()}pts</span></div>
+            <div className={clsx(styles.totalPointsContainer, "w-100 d-flex align-items-center justify-content-center")}><span className={styles.totalPoints}>{isFutureGameweek ? formatDeadline(data.deadline) : `${data.totalPoints.toLocaleString()}pts`}</span></div>
             <div className={clsx(styles.playerInfo, "w-100 d-flex align-items-center justify-content-center")}>
                 <div className={clsx(styles.playerInfoName, "d-flex align-items-center justify-content-center")}>
                     {playerInfo ? (

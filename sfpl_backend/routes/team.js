@@ -1,4 +1,4 @@
-const { players, positions, teamsById } = require('../cache.js')
+const { players, positions, teamsById, gameweek, events } = require('../cache.js')
 const { getPicks, getLive, getFixtures, getTransfers } = require('../teamCache.js')
 
 const express = require("express");
@@ -9,9 +9,12 @@ teamRouter.get("/:managerId/:gameweekId", async (req, res, next) => {
     const managerId = req.params.managerId;
     const gameweekId = Number(req.params.gameweekId);
 
+    const isFutureGameweek = gameweekId > gameweek.id;
+    const picksGameweek = isFutureGameweek ? gameweek.id : gameweekId;
+
     const [picks, live, fixtures, transfers] = await Promise.all([
-        getPicks(managerId, gameweekId),
-        getLive(gameweekId),
+        getPicks(managerId, picksGameweek),
+        isFutureGameweek ? Promise.resolve({ elements: [] }) : getLive(gameweekId),
         getFixtures(gameweekId),
         getTransfers(managerId),
     ]);
@@ -124,6 +127,8 @@ teamRouter.get("/:managerId/:gameweekId", async (req, res, next) => {
         bench,
         totalPoints,
         activeChip: picks.active_chip,
+        isFutureGameweek,
+        deadline: events[gameweekId]?.deadline_time || null,
     });
 });
 

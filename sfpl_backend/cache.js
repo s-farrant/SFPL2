@@ -32,6 +32,7 @@ const bootstrapFetch = async () => {
 
     gameweek.id = currentGameweek.id;
     gameweek.averageScore = currentGameweek.average_entry_score;
+    gameweek.total = bootstrapData.events.length;
 
 }
 
